@@ -14,11 +14,11 @@
 	
 	class mysql_helper{
 		var $servername = "localhost", 	//服务器地址
-			$username = "root",			//数据库帐号
-			$password = "ging9597";		//数据库密码
+			$username = "root",	//数据库帐号
+			$password = "ging9597";	//数据库密码
 		
-		var $sql,						//sql语句
-			$conn;						//连接数据库后返回的对象
+		var $sql,			//sql语句
+			$conn;			//连接数据库后返回的对象
 		
 		//连接到数据库
 		function sql_connect (){
@@ -89,7 +89,7 @@
 		function sql_insertData($dataTable,$column,$columnValue){
 			if(!empty($dataTable) && !empty($column) && !empty($columnValue)){
 				
-				//												 各个列名					各个列值
+				//						 各个列名			 各个列值
 				$this->sql = 'insert into ' . $dataTable . '(' . $column . ') values (' . $columnValue . ')';
 				$this->sql_query('insert');
 			}
