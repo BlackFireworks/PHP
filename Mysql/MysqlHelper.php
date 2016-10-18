@@ -67,7 +67,14 @@
 			
 			
 		}
-		
+		//修改表数据
+		function sql_updateData($dataTable,$updateData,$whereData){
+			if(!empty($dataTable) && !empty($whereData)){
+				$this->sql = 'update ' . $dataTable . ' set ' . $updateData . ' where ' . $whereData;
+				return $this->sql_query('updateData');
+			}
+			
+		}
 		//按条件删除数据表中的数据
 		function sql_deleteData($dataTable,$whereData){
 			if(!empty($dataTable) && !empty($whereData)){
@@ -89,7 +96,7 @@
 		function sql_insertData($dataTable,$column,$columnValue){
 			if(!empty($dataTable) && !empty($column) && !empty($columnValue)){
 				
-				//						 各个列名			 各个列值
+				//column--各个列名，columnValue--各个列值
 				$this->sql = 'insert into ' . $dataTable . '(' . $column . ') values (' . $columnValue . ')';
 				$this->sql_query('insert');
 			}
@@ -132,6 +139,7 @@
 	$helper->sql_insertData('user',"username,password","'test','1234567'");
 	$helper->sql_insertData('user',"username,password","'test','12345678'");
 	$helper->sql_deleteData('user','id = 2');
+	$helper->sql_updateData('user',"username = 'test2'",'id = 3');
 	$resultData = $helper->sql_selectData('user','id,username,password');
 
 	if($resultData->num_rows > 0){
