@@ -15,7 +15,7 @@
 	class mysql_helper{
 		var $servername = "localhost", 	//服务器地址
 			$username = "root",	//数据库帐号
-			$password = "ging9597";	//数据库密码
+			$password = "123456";	//数据库密码
 		
 		var $sql,			//sql语句
 			$conn;			//连接数据库后返回的对象
